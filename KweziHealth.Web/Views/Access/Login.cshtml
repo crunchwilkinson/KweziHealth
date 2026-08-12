@@ -1,0 +1,39 @@
+@model KweziHealth.Web.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Administrator Login";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3 class="card-title text-center mb-4">ESOP Admin Access</h3>
+                
+                <form asp-controller="Access" asp-action="Login" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="Username" class="control-label"></label>
+                        <input asp-for="Username" class="form-control" placeholder="Enter Admin Username" />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group mb-4">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Enter Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Secure Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

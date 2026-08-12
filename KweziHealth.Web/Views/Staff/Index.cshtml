@@ -1,0 +1,38 @@
+@model IEnumerable<KweziHealth.Web.Models.StaffMember>
+
+@{
+    ViewData["Title"] = "Staff Management";
+}
+
+<div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+    <h2>Staff Operations Directory</h2>
+    <a asp-action="Create" class="btn btn-success">Add New Staff Member</a>
+</div>
+
+<table class="table table-striped table-hover border">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Unit</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@item.StaffId</td>
+            <td>@item.FullName</td>
+            <td>@item.Email</td>
+            <td>@item.Position</td>
+            <td>@item.Unit</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StaffId" class="btn btn-sm btn-primary">Edit</a> 
+                <a asp-action="Delete" asp-route-id="@item.StaffId" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

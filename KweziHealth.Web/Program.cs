@@ -14,9 +14,16 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<SystemAdmin>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddControllersWithViews();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Access/Login";
+    options.LogoutPath = "/Access/Logout";
+});
 
 builder.Services.AddScoped<IStaffService, StaffService>();
+
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -34,7 +41,7 @@ else
 
 app.UseHttpsRedirection();
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
