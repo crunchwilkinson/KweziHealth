@@ -1,48 +1,84 @@
 @model KweziHealth.Web.Models.StaffMember
 
 @{
-    ViewData["Title"] = "Add Staff Member";
+    ViewData["Title"] = "Register Staff";
 }
 
-<div class="mt-4 mb-4">
-    <h2>Add New Staff Member</h2>
-    <hr />
-</div>
+<div class="row justify-content-center mt-4 mb-5">
+    <div class="col-lg-8 col-xl-7">
+        
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a asp-action="Index" class="text-decoration-none text-muted">Staff Directory</a></li>
+                <li class="breadcrumb-item active fw-bold" aria-current="page" style="color: #0d3b66;">Register Staff</li>
+            </ol>
+        </nav>
 
-<div class="row">
-    <div class="col-md-6">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-            
-            <div class="form-group mb-3">
-                <label asp-for="FullName" class="control-label fw-bold">Full Name</label>
-                <input asp-for="FullName" class="form-control" placeholder="Jane Doe" />
-                <span asp-validation-for="FullName" class="text-danger"></span>
+        <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+            <div class="card-header bg-light border-bottom-0 pt-4 pb-3 px-4">
+                <div class="d-flex align-items-center">
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex justify-content-center align-items-center me-3" style="width: 48px; height: 48px;">
+                        <i class="bi bi-person-plus-fill fs-4"></i>
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-0" style="color: #0d3b66;">Register Staff Member</h3>
+                        <p class="text-muted mb-0 small">Provision a new employee record in the ESOP system.</p>
+                    </div>
+                </div>
             </div>
             
-            <div class="form-group mb-3">
-                <label asp-for="Email" class="control-label fw-bold">Email Address</label>
-                <input asp-for="Email" class="form-control" type="email" placeholder="jane.doe@kwezihealth.co.za" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+            <div class="card-body p-4 bg-white">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger small py-2 rounded-3"></div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <label asp-for="FullName" class="form-label fw-semibold text-muted mb-2">
+                                <i class="bi bi-person me-2"></i>Full Legal Name
+                            </label>
+                            <input asp-for="FullName" class="form-control form-control-lg fs-6" placeholder="e.g. Jane Doe" />
+                            <span asp-validation-for="FullName" class="text-danger small mt-1 d-block"></span>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label asp-for="Email" class="form-label fw-semibold text-muted mb-2">
+                                <i class="bi bi-envelope-at me-2"></i>Corporate Email
+                            </label>
+                            <input asp-for="Email" class="form-control form-control-lg fs-6" type="email" placeholder="jane.doe@kwezihealth.co.za" />
+                            <span asp-validation-for="Email" class="text-danger small mt-1 d-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <label asp-for="Position" class="form-label fw-semibold text-muted mb-2">
+                                <i class="bi bi-briefcase me-2"></i>Job Title / Position
+                            </label>
+                            <input asp-for="Position" class="form-control form-control-lg fs-6" placeholder="e.g. Clinical Administrator" />
+                            <span asp-validation-for="Position" class="text-danger small mt-1 d-block"></span>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label asp-for="Unit" class="form-label fw-semibold text-muted mb-2">
+                                <i class="bi bi-buildings me-2"></i>Assigned Unit
+                            </label>
+                            <input asp-for="Unit" class="form-control form-control-lg fs-6" placeholder="e.g. Pediatrics Wing" />
+                            <span asp-validation-for="Unit" class="text-danger small mt-1 d-block"></span>
+                        </div>
+                    </div>
+                    
+                    <hr class="text-muted opacity-25 my-4" />
+                    
+                    <div class="d-flex justify-content-end gap-2">
+                        <a asp-action="Index" class="btn btn-light border px-4 rounded-pill fw-semibold text-muted hover-primary">Cancel</a>
+                        <button type="submit" class="btn btn-primary px-4 rounded-pill fw-bold">
+                            <i class="bi bi-check2-circle me-1"></i> Complete Registration
+                        </button>
+                    </div>
+                </form>
             </div>
-            
-            <div class="form-group mb-3">
-                <label asp-for="Position" class="control-label fw-bold">Position</label>
-                <input asp-for="Position" class="form-control" placeholder="e.g. Clinic Administrator" />
-                <span asp-validation-for="Position" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group mb-4">
-                <label asp-for="Unit" class="control-label fw-bold">Unit / Department</label>
-                <input asp-for="Unit" class="form-control" placeholder="e.g. Pediatrics" />
-                <span asp-validation-for="Unit" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group d-flex gap-2">
-                <button type="submit" class="btn btn-success">Save Staff Member</button>
-                <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
