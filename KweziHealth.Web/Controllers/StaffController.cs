@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using KweziHealth.Web.Models;
 using KweziHealth.Web.Services;
-using System.Diagnostics;
 
 namespace KweziHealth.Web.Controllers
 {
@@ -17,20 +16,19 @@ namespace KweziHealth.Web.Controllers
             _staffService = staffService;
         }
 
-        // GET: Staff
+        // --- INDEX ---
         public async Task<IActionResult> Index()
         {
             var staffList = await _staffService.GetAllStaffAsync();
             return View(staffList);
         }
 
-        // GET: Staff/Create
+        // --- CREATE ---
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Staff/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(StaffMember staff)
@@ -43,7 +41,7 @@ namespace KweziHealth.Web.Controllers
             return View(staff);
         }
 
-        // GET: Staff/Edit/5
+        // --- EDIT ---
         public async Task<IActionResult> Edit(int id)
         {
             var staff = await _staffService.GetStaffByIdAsync(id);
@@ -54,7 +52,6 @@ namespace KweziHealth.Web.Controllers
             return View(staff);
         }
 
-        // POST: Staff/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, StaffMember staff)
@@ -72,7 +69,7 @@ namespace KweziHealth.Web.Controllers
             return View(staff);
         }
 
-        // GET: Staff/Delete/5
+        // --- DELETE ---
         public async Task<IActionResult> Delete(int id)
         {
             var staff = await _staffService.GetStaffByIdAsync(id);
@@ -83,7 +80,6 @@ namespace KweziHealth.Web.Controllers
             return View(staff);
         }
 
-        // POST: Staff/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -91,12 +87,13 @@ namespace KweziHealth.Web.Controllers
             await _staffService.DeleteStaffAsync(id);
             return RedirectToAction(nameof(Index));
         }
-
+        
+        // --- ERROR HANDLER ---
         [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel { RequestId = System.Diagnostics.Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
