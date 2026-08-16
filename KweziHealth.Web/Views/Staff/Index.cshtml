@@ -4,7 +4,6 @@
     ViewData["Title"] = "Staff Directory";
 }
 
-<!-- Header Section -->
 <div class="d-flex justify-content-between align-items-end mb-4 mt-3">
     <div>
         <h2 class="fw-bold mb-1" style="color: #0d3b66;">Staff Directory</h2>
@@ -15,7 +14,6 @@
     </a>
 </div>
 
-<!-- Dashboard Table Card -->
 <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
     <div class="table-responsive">
         <table class="table table-hover align-middle mb-0 bg-white">
@@ -46,11 +44,9 @@
             {
                 foreach (var item in Model) {
                     <tr class="border-bottom">
-                        <!-- Avatar and Name Column -->
                         <td class="ps-4 py-3">
                             <div class="d-flex align-items-center">
                                 <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex justify-content-center align-items-center me-3" style="width: 45px; height: 45px;">
-                                    <!-- Auto-generate an avatar from the first letter of the name -->
                                     <span class="fw-bold fs-5">@(string.IsNullOrEmpty(item.FullName) ? "U" : item.FullName.Substring(0,1).ToUpper())</span>
                                 </div>
                                 <div>
@@ -60,26 +56,22 @@
                             </div>
                         </td>
                         
-                        <!-- Email Column -->
                         <td class="py-3">
                             <a href="mailto:@item.Email" class="text-decoration-none text-muted d-flex align-items-center hover-primary">
                                 <i class="bi bi-envelope-at me-2 text-secondary opacity-75"></i> @item.Email
                             </a>
                         </td>
                         
-                        <!-- Position/Role Column -->
                         <td class="py-3">
                             <span class="badge rounded-pill bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 px-3 py-2 fw-normal">
                                 @item.Position
                             </span>
                         </td>
                         
-                        <!-- Unit Column -->
                         <td class="py-3 text-muted">
                             <i class="bi bi-buildings me-2 text-secondary opacity-75"></i> @item.Unit
                         </td>
                         
-                        <!-- Actions Column -->
                         <td class="text-end pe-4 py-3">
                             <div class="btn-group shadow-sm border rounded-3">
                                 <a asp-action="Edit" asp-route-id="@item.StaffId" class="btn btn-sm btn-light text-primary px-3" title="Edit Record">

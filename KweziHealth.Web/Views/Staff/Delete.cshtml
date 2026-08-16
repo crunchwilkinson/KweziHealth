@@ -7,7 +7,6 @@
 <div class="row justify-content-center mt-4 mb-5">
     <div class="col-lg-7 col-xl-6">
         
-        <!-- Breadcrumb Navigation -->
         <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><a asp-action="Index" class="text-decoration-none text-muted">Staff Directory</a></li>
@@ -62,7 +61,6 @@
                 </div>
 
                 <form asp-action="Delete" method="post">
-                    <!-- Hidden input ensures the correct ID is passed to the POST method -->
                     <input type="hidden" asp-for="StaffId" />
                     
                     <hr class="text-muted opacity-25 my-4" />

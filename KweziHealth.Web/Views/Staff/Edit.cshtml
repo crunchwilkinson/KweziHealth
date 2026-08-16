@@ -7,7 +7,6 @@
 <div class="row justify-content-center mt-4 mb-5">
     <div class="col-lg-8 col-xl-7">
         
-        <!-- Breadcrumb Navigation -->
         <nav aria-label="breadcrumb" class="mb-3">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><a asp-action="Index" class="text-decoration-none text-muted">Staff Directory</a></li>
@@ -35,7 +34,6 @@
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="alert alert-danger small py-2 rounded-3"></div>
                     
-                    <!-- Hidden input to maintain the ID -->
                     <input type="hidden" asp-for="StaffId" />
                     
                     <div class="row mb-4">
