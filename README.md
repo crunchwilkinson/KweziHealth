@@ -1,4 +1,4 @@
-# KweziHealth ESOP (Enterprise Staff Operations Platform) 🏥
+# KweziHealth ESOP 🏥
 
 ![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
 ![ASP.NET Core MVC](https://img.shields.io/badge/ASP.NET_Core-MVC-blue?style=for-the-badge)
