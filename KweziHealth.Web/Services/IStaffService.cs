@@ -5,10 +5,10 @@ namespace KweziHealth.Web.Services
 {
     public interface IStaffService
     {
-        IEnumerable<StaffMember> GetAllStaff();
-        StaffMember GetStaffById(int id);
-        void AddStaff(StaffMember staff);
-        void UpdateStaff(StaffMember staff);
-        void DeleteStaff(int id);
+        Task<IEnumerable<StaffMember>> GetAllStaffAsync();
+        Task<StaffMember> GetStaffByIdAsync(int id);
+        Task AddStaffAsync(StaffMember staff);
+        Task UpdateStaffAsync(StaffMember staff);
+        Task DeleteStaffAsync(int id);
     }
 }
