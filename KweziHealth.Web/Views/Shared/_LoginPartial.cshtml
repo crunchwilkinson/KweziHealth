@@ -1,5 +1,4 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using KweziHealth.Web.Models
 @inject SignInManager<SystemAdmin> SignInManager
 @inject UserManager<SystemAdmin> UserManager
 
@@ -7,7 +6,8 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+        <!-- Replaced the Identity Account Manage link with a simple text span -->
+        <span class="nav-link text-dark">Hello @User.Identity?.Name!</span>
     </li>
     <li class="nav-item">
         <form class="form-inline" asp-area="" asp-controller="Access" asp-action="Logout" method="post">
@@ -17,9 +17,6 @@
 }
 else
 {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
     <li class="nav-item">
         <a class="nav-link text-dark" asp-area="" asp-controller="Access" asp-action="Login">Login</a>
     </li>

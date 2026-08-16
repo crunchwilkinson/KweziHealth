@@ -12,8 +12,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseInMemoryDatabase("KweziHealthEsopDb"));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<SystemAdmin>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddIdentity<SystemAdmin, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -50,9 +51,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Staff}/{action=Index}/{id?}")
     .WithStaticAssets();
-
-app.MapRazorPages()
-   .WithStaticAssets();
 
 using (var scope = app.Services.CreateScope())
 {
