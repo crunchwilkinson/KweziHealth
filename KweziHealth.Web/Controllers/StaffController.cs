@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using KweziHealth.Web.Models;
 using KweziHealth.Web.Services;
+using System.Diagnostics;
 
 namespace KweziHealth.Web.Controllers
 {
@@ -89,6 +90,13 @@ namespace KweziHealth.Web.Controllers
         {
             await _staffService.DeleteStaffAsync(id);
             return RedirectToAction(nameof(Index));
+        }
+
+        [AllowAnonymous]
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
