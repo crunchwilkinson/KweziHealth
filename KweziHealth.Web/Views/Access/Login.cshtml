@@ -5,31 +5,46 @@
 }
 
 <div class="row justify-content-center mt-5">
-    <div class="col-md-4">
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h3 class="card-title text-center mb-4">ESOP Admin Access</h3>
+    <div class="col-md-5 col-lg-4">
+        <div class="card shadow-lg border-0 card-brand-top rounded-3">
+            <div class="card-body p-5">
+                <div class="text-center mb-4">
+                    <div class="bg-light rounded-circle d-inline-flex p-3 mb-3">
+                        <i class="bi bi-shield-lock-fill text-primary fs-1"></i>
+                    </div>
+                    <h3 class="card-title fw-bold">Admin Portal</h3>
+                    <p class="text-muted small">Please authenticate to access ESOP</p>
+                </div>
                 
                 <form asp-controller="Access" asp-action="Login" method="post">
-                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger small py-2"></div>
                     
-                    <div class="form-group mb-3">
-                        <label asp-for="Username" class="control-label"></label>
-                        <input asp-for="Username" class="form-control" placeholder="Enter Admin Username" />
-                        <span asp-validation-for="Username" class="text-danger"></span>
+                    <div class="mb-4">
+                        <label asp-for="Username" class="form-label fw-bold mb-2 text-muted">
+                            <i class="bi bi-person me-2"></i>Username
+                        </label>
+                        <input asp-for="Username" class="form-control form-control-lg fs-6" placeholder="Enter your username" />
+                        <span asp-validation-for="Username" class="text-danger small mt-1 d-block"></span>
                     </div>
                     
-                    <div class="form-group mb-4">
-                        <label asp-for="Password" class="control-label"></label>
-                        <input asp-for="Password" type="password" class="form-control" placeholder="Enter Password" />
-                        <span asp-validation-for="Password" class="text-danger"></span>
+                    <div class="mb-4">
+                        <label asp-for="Password" class="form-label fw-bold mb-2 text-muted">
+                            <i class="bi bi-key me-2"></i>Password
+                        </label>
+                        <input asp-for="Password" type="password" class="form-control form-control-lg fs-6" placeholder="Enter your password" />
+                        <span asp-validation-for="Password" class="text-danger small mt-1 d-block"></span>
                     </div>
                     
-                    <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Secure Login</button>
+                    <div class="d-grid mt-2">
+                        <button type="submit" class="btn btn-primary btn-lg fw-bold">
+                            Authenticate <i class="bi bi-arrow-right-circle ms-1"></i>
+                        </button>
                     </div>
                 </form>
             </div>
+        </div>
+        <div class="text-center mt-4 text-muted small">
+            <i class="bi bi-info-circle me-1"></i> Unauthorized access is strictly prohibited.
         </div>
     </div>
 </div>

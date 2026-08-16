@@ -29,3 +29,24 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+/* KweziHealth Brand Theme */
+.brand-navbar {
+    background-color: #0d3b66; /* Deep healthcare blue */
+}
+
+.card-brand-top {
+    border-top: 5px solid #0d3b66;
+}
+
+.table-brand-head {
+    background-color: #f1f5f9;
+    color: #0d3b66;
+    border-bottom: 2px solid #0d3b66;
+}
+
+.action-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.25rem;
+}

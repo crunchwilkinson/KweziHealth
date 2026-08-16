@@ -9,7 +9,6 @@ namespace KweziHealth.Web.Controllers
     {
         private readonly SignInManager<SystemAdmin> _signInManager;
 
-        // If your SignInManager uses SystemAdmin, change IdentityUser to SystemAdmin
         public AccessController(SignInManager<SystemAdmin> signInManager) 
         {
             _signInManager = signInManager;

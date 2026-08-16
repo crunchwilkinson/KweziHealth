@@ -58,7 +58,6 @@ using (var scope = app.Services.CreateScope())
     var context = services.GetRequiredService<ApplicationDbContext>();
     var userManager = services.GetRequiredService<UserManager<SystemAdmin>>();
 
-    // 1. Test In-Memory Database & StaffMember Model
     if (!context.StaffMembers.Any())
     {
         context.StaffMembers.Add(new StaffMember
@@ -94,7 +93,6 @@ using (var scope = app.Services.CreateScope())
         }
     }
 
-    // 3. Print verified data to Console
     var staffCount = context.StaffMembers.Count();
     var adminCount = context.Users.Count();
     
