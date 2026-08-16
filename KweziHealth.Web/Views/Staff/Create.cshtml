@@ -1,0 +1,51 @@
+@model KweziHealth.Web.Models.StaffMember
+
+@{
+    ViewData["Title"] = "Add Staff Member";
+}
+
+<div class="mt-4 mb-4">
+    <h2>Add New Staff Member</h2>
+    <hr />
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="FullName" class="control-label fw-bold">Full Name</label>
+                <input asp-for="FullName" class="form-control" placeholder="Jane Doe" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="control-label fw-bold">Email Address</label>
+                <input asp-for="Email" class="form-control" type="email" placeholder="jane.doe@kwezihealth.co.za" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-3">
+                <label asp-for="Position" class="control-label fw-bold">Position</label>
+                <input asp-for="Position" class="form-control" placeholder="e.g. Clinic Administrator" />
+                <span asp-validation-for="Position" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group mb-4">
+                <label asp-for="Unit" class="control-label fw-bold">Unit / Department</label>
+                <input asp-for="Unit" class="form-control" placeholder="e.g. Pediatrics" />
+                <span asp-validation-for="Unit" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group d-flex gap-2">
+                <button type="submit" class="btn btn-success">Save Staff Member</button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

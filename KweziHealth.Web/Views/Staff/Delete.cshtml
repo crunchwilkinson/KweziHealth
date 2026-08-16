@@ -1,0 +1,41 @@
+@model KweziHealth.Web.Models.StaffMember
+
+@{
+    ViewData["Title"] = "Delete Staff Member";
+}
+
+<div class="mt-4 mb-4">
+    <h2 class="text-danger">Remove Staff Record</h2>
+    <hr />
+    <h4 class="fw-normal">Are you sure you want to permanently delete this staff member?</h4>
+</div>
+
+<div class="card shadow-sm col-md-6 mb-4">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-4 text-muted">ID</dt>
+            <dd class="col-sm-8 fw-bold">@Model.StaffId</dd>
+
+            <dt class="col-sm-4 text-muted">Full Name</dt>
+            <dd class="col-sm-8">@Model.FullName</dd>
+
+            <dt class="col-sm-4 text-muted">Email</dt>
+            <dd class="col-sm-8">@Model.Email</dd>
+
+            <dt class="col-sm-4 text-muted">Position</dt>
+            <dd class="col-sm-8">@Model.Position</dd>
+
+            <dt class="col-sm-4 text-muted">Unit</dt>
+            <dd class="col-sm-8">@Model.Unit</dd>
+        </dl>
+    </div>
+</div>
+
+<form asp-action="Delete" method="post">
+    <!-- Hidden input ensures the correct ID is passed to the POST method -->
+    <input type="hidden" asp-for="StaffId" />
+    <div class="d-flex gap-2">
+        <button type="submit" class="btn btn-danger">Confirm Deletion</button>
+        <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+    </div>
+</form>
