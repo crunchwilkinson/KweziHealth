@@ -23,7 +23,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 ms-4">
-                        @if (User.Identity.IsAuthenticated)
+                        @if (User.Identity?.IsAuthenticated == true)
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-area="" asp-controller="Staff" asp-action="Index">
@@ -45,7 +45,7 @@
 
     <footer class="border-top footer text-muted bg-white py-3 mt-auto">
         <div class="container text-center">
-            &copy; 2026 - KweziHealth Systems - Enterprise Staff Operations Platform Phase 1
+            &copy; 2026 - KweziHealth Systems - Enterprise Staff Operations Platform 
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

@@ -1,10 +1,8 @@
-using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
 namespace KweziHealth.Web.Models
 {
-    public class SystemAdmin : IdentityUser
-    {
-        
-    }
+    // Deliverable 1
+    // SystemAdmin inherits from IdentityUser, which includes properties like Id, UserName, Email, PasswordHash, etc.
+    public class SystemAdmin : IdentityUser {}
 }
