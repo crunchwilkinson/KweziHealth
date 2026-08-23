@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace KweziHealth.Web.Models
 {
+    // Deliverable 1
     public class StaffMember
     {
         [Key]

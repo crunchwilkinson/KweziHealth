@@ -2,6 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace KweziHealth.Web.ViewModels
 {
+    // Deliverable 1
+
     // This ViewModel is used for the login form in the application. It contains properties for the username and password
     // This represents the SystemAdmin user who will be logging into the application.
     public class LoginViewModel

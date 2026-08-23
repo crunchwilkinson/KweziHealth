@@ -3,6 +3,9 @@ using KweziHealth.Web.Models;
 
 namespace KweziHealth.Web.Data
 {
+    /// <summary>
+    /// Provides functionality for seeding the database with initial data.
+    /// </summary>
     public class DataSeeder
     {
         private readonly ApplicationDbContext _context;
@@ -13,7 +16,9 @@ namespace KweziHealth.Web.Data
             _context = context;
             _userManager = userManager;
         }
-
+        /// <summary> 
+        /// Seeds the database with initial staff members and a system admin user if they do not already exist.
+        /// </summary>
         public async Task SeedAsync()
         {
             // Seed Staff Members
