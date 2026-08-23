@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using KweziHealth.Web.Models;
 using KweziHealth.Web.ViewModels;
-using System.Threading.Tasks;
 
 namespace KweziHealth.Web.Controllers
 {
