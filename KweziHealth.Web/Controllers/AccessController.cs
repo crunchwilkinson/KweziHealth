@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using KweziHealth.Web.Models;
+using KweziHealth.Web.ViewModels;
 using System.Threading.Tasks;
 
 namespace KweziHealth.Web.Controllers
@@ -17,6 +18,11 @@ namespace KweziHealth.Web.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            if (User.Identity == null)
+            {
+                return View();
+            }
+
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Staff");
